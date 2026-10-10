@@ -24,10 +24,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - name: Chuẩn bị thư mục publish
         run: |
           mkdir _site
-          cp *.html style.css _site/
+          cp -r *.html assets forms _site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
